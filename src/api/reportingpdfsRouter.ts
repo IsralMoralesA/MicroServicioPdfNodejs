@@ -26,6 +26,27 @@ const router: Router = Router();
  */
 router.get('/users', reportingpdfsFacade.findAll);
 
+
+/**
+ * GET method route
+ * @example http://localhost:PORT/pdfgenarator
+ * @swagger
+ * /pdfgenarator/:
+ *  post:
+ *    description: Post Url to PDF
+ *    tags: ["PDFGenerator"]
+ *    responses:
+ *      200:
+ *        description: Get Url to PDF
+ *        content:
+ *          appication/json:
+ *            example:
+ *              status: 200
+ *              message: url PDF
+ */
+router.post('/pdfgenerator', reportingpdfsFacade.pdfgenerator);
+
+
 /**
  * GET method route
  * @example http://localhost:PORT/ping

@@ -5,7 +5,7 @@ import reportingpdfsRouter from './reportingpdfsRouter';
 let swaggerDoc: Object;
 
 try {
-    swaggerDoc = require('../../swagger.json');
+    swaggerDoc = require('../../../swagger.json');
 } catch (error) {
     console.log('***************************************************');
     console.log('  Seems like you doesn\`t have swagger.json file');

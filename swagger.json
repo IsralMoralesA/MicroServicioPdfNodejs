@@ -1,0 +1,108 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "reportingpdfs API",
+    "version": "1.0.0",
+    "description": "Microservice reportingpdfs API"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5106"
+    }
+  ],
+  "paths": {
+    "/users/": {
+      "post": {
+        "description": "Get all Users",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "All Users",
+            "content": {
+              "appication/json": {
+                "example": {
+                  "status": 200,
+                  "message": "Users"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pdfgenarator/": {
+      "post": {
+        "description": "Post Url to PDF",
+        "tags": [
+          "PDFGenerator"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Url to PDF",
+            "content": {
+              "appication/json": {
+                "example": {
+                  "status": 200,
+                  "message": "url PDF"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ping/": {
+      "post": {
+        "description": "Test service",
+        "tags": [
+          "Ping"
+        ],
+        "responses": {
+          "200": {
+            "description": "Pong",
+            "content": {
+              "appication/json": {
+                "example": {
+                  "status": 200,
+                  "message": "pong"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "errorCode": {
+            "type": "string",
+            "description": "Código de error de negocio",
+            "example": 10
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": "Error de sistema",
+            "example": "Null pointer"
+          },
+          "userError": {
+            "type": "string",
+            "description": "Human readable error",
+            "example": "No se encontró información"
+          },
+          "info": {
+            "type": "string",
+            "description": "Información sobre solución del error",
+            "example": "http://info.com"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

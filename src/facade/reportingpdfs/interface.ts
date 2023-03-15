@@ -1,3 +1,5 @@
+import { ReponseObject } from "../../commons/Response/ResponseObject";
+import { RawMaterialRequestDetailTO } from "../../to/RawMaterialRequestDetailTO";
 
 /**
  * @export
@@ -10,4 +12,10 @@ export interface IreportingpdfsFacade {
      * @memberof IreportingpdfsFacade
      */
     findAll(): Promise<any[]>;
+
+    /**
+     * @returns {Promise<any[]>}
+     * @memberof IreportingpdfsFacade
+     */
+    generatePDF(data: RawMaterialRequestDetailTO[]): Promise<ReponseObject>;
 }
