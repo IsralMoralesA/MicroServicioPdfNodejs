@@ -27,12 +27,12 @@
  */
 
 export class ReponseObject {
-    url: string;
+    msg: string;
 
     /**
      *
      */
-    constructor(url: string) {
-        this.url = url;
+    constructor(msg: string) {
+        this.msg = msg;
     }
 }

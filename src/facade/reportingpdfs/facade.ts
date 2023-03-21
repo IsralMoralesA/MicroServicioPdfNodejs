@@ -1,6 +1,6 @@
 import { ReponseObject } from "../../commons/Response/ResponseObject";
 import { reportingpdfsService } from "../../services";
-import { RawMaterialRequestDetailTO } from "../../to/RawMaterialRequestDetailTO";
+import { ReportDataTO } from "../../to/ReportDataTO";
 import { IreportingpdfsFacade } from "./interface";
 
 
@@ -22,7 +22,8 @@ const reportingpdfsFacade: IreportingpdfsFacade = {
      * @returns {Promise < any[] >}
      * @memberof reportingpdfsFacade
      */
-    async generatePDF(data: RawMaterialRequestDetailTO[]): Promise<ReponseObject> {
+    async generatePDF(data: ReportDataTO): Promise<ReponseObject> {
+                
         let response = await reportingpdfsService.generatePDF(data);
         return response;
     }

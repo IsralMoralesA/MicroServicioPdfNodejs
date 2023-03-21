@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orden o solicitud de insumos al almacén</title>
+    <style type='text/css'>
+        body {
+            font-family: 'Frutiger Next';
+            color: #252525;
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .background-gray {
+            background: #EDEDED;
+        }
+
+        .content-general {
+            width: 100%;
+            height: 90%;
+        }
+
+        .header-omi {
+            height: 78px;
+            background: #3B80BC 0% 0% no-repeat padding-box;
+            color: #fff;
+            display: grid;
+        }
+
+        .grid-header-omi {
+            width: 90%;
+            align-content: center;
+            margin: auto 5%;
+            display: grid;
+            grid-template-columns: 90% auto;
+            grid-template-rows: auto;
+        }
+
+        .logoOmiLab {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            font-size: 32px;
+            letter-spacing: 1px;
+        }
+
+        .logoDesc {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 2;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            font-size: 7px;
+            padding-left: 5px;
+            letter-spacing: 4.5px;
+        }
+
+        .pagin {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .body-omi {
+            width: 90%;
+            margin: auto 5%;
+        }
+
+        .info-table {
+            margin-top: 20px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 70% auto;
+            grid-template-rows: auto auto;
+            font-size: 10pt;
+        }
+
+        .document-title {
+            color: #3B80BC;
+            font-size: 14pt;
+            font-weight: bold;
+            padding-bottom: 10px;
+        }
+
+        .document-date-title {
+            font-size: 10pt;
+            font-style: normal;
+            font-weight: bold;
+            padding: 3px 3px 3px 10px;
+        }
+
+        .document-date {
+            font-size: 10pt;
+            font-style: normal;
+            padding: 3px 3px 3px 10px;
+        }
+
+        .request-number {
+            font-size: 10pt;
+            font-weight: bold;
+        }
+
+        #supplies {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #3B80BC;
+        }
+
+        #supplies td {
+            border-left: 2px solid #3B80BC;
+            border-right: 2px solid #3B80BC;
+            height: 30px;
+            font-size: 10pt;
+            padding: 0px 10px 0px 10px;
+        }
+
+        #supplies thead td {
+            color: white;
+            background: #3B80BC;
+            text-align: center;
+            padding: 5px;
+        }
+
+        #supplies td:first-child {
+            border-left: none;
+        }
+
+        #supplies td:last-child {
+            border-right: none;
+        }
+
+        #supplies tr:nth-child(even) {
+            background-color: #B1D1EE;
+        }
+
+        .signatures {
+            display: grid;
+            grid-template-columns: 47% 47%;
+            grid-template-rows: auto 90px auto;
+            column-gap: 6%;
+            margin-top: 20px;
+        }
+
+        .title {
+            font-size: 10pt;
+            font-style: normal;
+            font-weight: bold;
+            padding: 10px 10px 10px 10px;
+        }
+
+        .signature-name {
+            text-align: center;
+            padding-bottom: 8px;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 10pt;
+        }
+
+        .signature-img {
+            text-align: center;
+        }
+
+        .observations {
+            margin-top: 20px;
+            font-size: 10pt;
+        }
+
+        .observations-text {
+            padding: 0px 10px 10px 10px;
+            max-height: fit-content;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='content-general'>
+        <div class='body-omi'>
+            <div class='signatures'>
+                <div class="title background-gray">Firma del solicitante</div>
+                <div class="title background-gray">Firma de almacén</div>
+                <div class="background-gray">
+                    <center><img style='display:block; width:100px;height:100px;' id='base64image' src='data:image/jpeg;base64,{{ signatureApplicant }}' /></center>
+                </div>
+                <div class="background-gray">
+                    <center><img style='display:block; width:100px;height:100px;' id='base64image' src='data:image/jpeg;base64,{{ warehouseSignature }}' /></center>
+                </div>
+                <div class="signature-name background-gray">
+                    {{ signatureApplicantName }}
+                </div>
+                <div class="signature-name background-gray"></div>
+            </div>
+            <div class='observations'>
+                <div class="title background-gray">Observaciones</div>
+                <div class="observations-text background-gray"> {{ observations }} </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

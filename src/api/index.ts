@@ -1,3 +1,4 @@
+import exp from 'constants';
 import * as express from 'express';
 import * as http from 'http';
 import * as swaggerUi from 'swagger-ui-express';
@@ -21,6 +22,13 @@ try {
 export function init(app: express.Application): void {
     const router: express.Router = express.Router();
 
+    /** 
+     * MiddleWares
+     * 
+    */
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: false }));
+    
     /**
      * @description Forwards any requests to the /auth URI to our AuthRouter
      * @constructs

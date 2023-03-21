@@ -26,6 +26,10 @@ interface IConfig {
         PASSWORD: string;
     };
     secret: string;
+    azure:{
+        AzureAccountName: string;
+        AzureAccountKey: string;
+    }
 }
 
 const NODE_ENV: string = process.env.NODE_ENV || 'development';
@@ -51,7 +55,39 @@ const development: IConfig = {
         PASSWORD: process.env.ELASTIC_SEARCH_PASSWORD || 'XXXXXXXXXXXX',
         INDEX_LOGGER: process.env.ELASTIC_SEARCH_INDEX_LOGGER || 'reportingpdfs-service',
     },
-    secret: process.env.SECRET || '@QEGTUI'
+    secret: process.env.SECRET || '@QEGTUI',
+    azure:{
+        AzureAccountName: process.env.STORAGE_ACCOUNT_NAME || "omicronsaprod",
+        AzureAccountKey: process.env.ACCOUNT_ACCESS_KEY || "nJ2cIrR38X81u3jSA4bhuNdVvx90bQA+LdXMS2dU58k5pJcQqAk4rC3hHX3X1kgxxnkA98iagWukoYi7XUFY6g==",
+    }
+};
+
+const staging: IConfig = {
+    port: process.env.PORT || 5106,
+    database: {
+        DB_DIALECT: 'postgres',
+        DB_NAME: process.env.DB_NAME || 'project',
+        DB_USER: process.env.DB_USER || 'postgres',
+        DB_PASSWORD: process.env.DB_PASSWORD || 'project123',
+        DB_PORT: process.env.DB_PORT || '5432',
+        DB_HOST: process.env.DB_HOST || 'localhost'
+    },
+    kafka: {
+        CLIENT_ID: process.env.CLIENT_ID || 'test-app',
+        GROUP_ID: process.env.GROUP_ID || 'test-app',
+        BROKER: process.env.BROKER || 'localhost:9092'
+    },
+    elasticSearch: {
+        HOST: process.env.ELASTIC_SEARCH_HOST || 'https://axity.es.us-east4.gcp.elastic-cloud.com:9243',
+        USER: process.env.ELASTIC_SEARCH_USER || 'elastic',
+        PASSWORD: process.env.ELASTIC_SEARCH_PASSWORD || 'XXXXXXXXXXXX',
+        INDEX_LOGGER: process.env.ELASTIC_SEARCH_INDEX_LOGGER || 'reportingpdfs-service',
+    },
+    secret: process.env.SECRET || '@QEGTUI',
+    azure:{
+        AzureAccountName: process.env.STORAGE_ACCOUNT_NAME || "",
+        AzureAccountKey: process.env.ACCOUNT_ACCESS_KEY || "",
+    }
 };
 
 const production: IConfig = {
@@ -75,7 +111,12 @@ const production: IConfig = {
         PASSWORD: process.env.ELASTIC_SEARCH_PASSWORD || 'XXXXXXXXXXXX',
         INDEX_LOGGER: process.env.ELASTIC_SEARCH_INDEX_LOGGER || 'reportingpdfs-service',
     },
-    secret: process.env.SECRET || '@QEGTUI'
+    secret: process.env.SECRET || '@QEGTUI',
+    azure:{
+        AzureAccountName: process.env.STORAGE_ACCOUNT_NAME || "",
+        AzureAccountKey: process.env.ACCOUNT_ACCESS_KEY || "",
+        
+    }
 };
 
 const test: IConfig = {
@@ -95,7 +136,12 @@ const test: IConfig = {
         PASSWORD: process.env.ELASTIC_SEARCH_PASSWORD || 'XXXXXXXXXXXX',
         INDEX_LOGGER: process.env.ELASTIC_SEARCH_INDEX_LOGGER || 'reportingpdfs-service',
     },
-    secret: process.env.SECRET || '@QEGTUI'
+    secret: process.env.SECRET || '@QEGTUI',
+    azure:{
+        AzureAccountName: process.env.STORAGE_ACCOUNT_NAME || "",
+        AzureAccountKey: process.env.ACCOUNT_ACCESS_KEY || "",
+        
+    }
 };
 
 const config: {
@@ -103,7 +149,8 @@ const config: {
 } = {
     test,
     development,
-    production
+    production,
+    staging
 };
 
 export default config[NODE_ENV];

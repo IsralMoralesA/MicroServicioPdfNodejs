@@ -1,5 +1,5 @@
 import { ReponseObject } from "../../commons/Response/ResponseObject";
-import { RawMaterialRequestDetailTO } from "../../to/RawMaterialRequestDetailTO";
+import { ReportDataTO } from "../../to/ReportDataTO";
 
 /**
  * @export
@@ -17,5 +17,5 @@ export interface IreportingpdfsService {
      * @returns {Promise<any[]>}
      * @memberof IreportingpdfsService
      */
-    generatePDF(data: RawMaterialRequestDetailTO[]): Promise<ReponseObject>;
+    generatePDF(data: ReportDataTO): Promise<ReponseObject>;
 }

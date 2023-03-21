@@ -28,10 +28,7 @@ export async function findAll(req: Request, res: Response, next: NextFunction): 
  */
 export async function pdfgenerator(req: Request, res: Response, next: NextFunction): Promise < void > {
     try {
-        const body = req.body;
-        console.log("llega boyd:",req);
-        console.log("llega query:",req.query);
-        
+        const body = req.body;        
         const reportingpdfs: ReponseObject = await reportingpdfsFacade.generatePDF(body);
         res.status(HttpStatusCode.OK).json(reportingpdfs);
     } catch (error) {
